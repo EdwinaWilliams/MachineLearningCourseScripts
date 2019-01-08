@@ -38,13 +38,14 @@ print ( y_train)
 print ("**************************************************")
 print ("y_test = " ) 
 print (y_test) 
-#using the KNeighborsClassifier 
-#from sklearn.neighbors import KNeighborsClassifier
-#my_classifier = KNeighborsClassifier()
-#
-#my_classifier.fit(X_train, y_train)
-#
-#predictions = my_classifier.predict(X_Test)
+
+#using the KNeighborsClassifier ==> called a pipeline 
+from sklearn.neighbors import KNeighborsClassifier
+my_classifier = KNeighborsClassifier()
+
+my_classifier.fit(X_train, y_train)
+
+predictions = my_classifier.predict(X_Test)
 #Checking models accuracy 
-#from sklearn.metrics import accuracy_score
-#print( accuracy_score(y_test, predictions))
+from sklearn.metrics import accuracy_score
+print( accuracy_score(y_test, predictions))
