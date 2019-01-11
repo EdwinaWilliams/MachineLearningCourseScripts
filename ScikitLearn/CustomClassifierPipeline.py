@@ -14,15 +14,15 @@ K is the number of neighbors that should be considered in making our prediction 
 """
 
 #Getting the distance function fro the spatial library (Euclidean distance )
-#from scrip.spatial import distance 
+from scipy.spatial import distance 
 #from .script import distance 
-import math
+
 
 #function: will calculate the distance 
 def euc(a,b):
     return distance.euclidean(a,b)
 
-class BasicKNN():
+class ScrappyKNN():
     #adding two functions: Fit (train) and predict
     
     #input is the training data features and target values 
@@ -43,19 +43,20 @@ class BasicKNN():
         for row in X_test: 
             #find the closest point in the test set (neighbor K=1)
             label = self.closest(row)
-            predictions.apped(label)
+            predictions.append(label)
         return predictions
             
     #memorise how close the element is to the training example 
     def closest(self, row):
         best_dist = euc(row, self.X_train[0])
-        best_index = 0 
+        best_index = 1
         for i in range(1, len(self.X_train)):
             dist = euc(row, self.X_train[i])
             if dist < best_dist:
                 best_dist = dist
                 best_index = i
             return self.y_train[best_index]
+        
 #importing the iris dataset     
 from sklearn import datasets
 iris = datasets.load_iris()
@@ -67,6 +68,7 @@ y = iris.target
 
 #splitting dataset into random training and test set 
 from sklearn.model_selection import train_test_split
+
 """
  Sample size set to half the data set
  Splitting dataset into train and test 
@@ -81,7 +83,7 @@ from sklearn.model_selection import train_test_split
 X_train, X_Test, y_train, y_test = train_test_split(X, y, test_size = .5)
 
 
-my_classifier = KNeighborsClassifier()
+my_classifier = ScrappyKNN()
 
 my_classifier.fit(X_train, y_train)
 
