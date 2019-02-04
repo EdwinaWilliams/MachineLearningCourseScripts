@@ -27,7 +27,7 @@ with open ("HangManWords.txt") as words:
 
 #this function receives a word and masks some of the letters     
 def masking(randword):
-    wordlen = len(word)
+    wordlen = len(randword)
        
     if wordlen >= 1 and wordlen <= 3:
        maskno = 1
@@ -42,11 +42,26 @@ def masking(randword):
                   
     randindex = random.sample(range(0, wordlen), maskno)
     
-    maskedword = word.replace(word[i], "_")
-    return maskedword
+    for i in randindex:
+        randword = randword.replace(randword[i], "_")
+    return randword
+
+
+
+#this function checks whether the input provided matches a missing letter
 
 #Prompts and displays
 print("Welcome to Hangman")
 print(masking(word))
-print("Guess the letters of the missing words, you get %d guesses", (maxGuess))
-usrinput = input()
+print("Guess the letters of the missing words, you get " + str(maxGuess) + " guesses")
+#usrinput = input()
+
+
+for i in maskedIndexNo:
+    if word[i] == usrinput:
+        guessAnswer = True
+    else: 
+        guessAnswer = False
+  
+
+print(guessAnswer)

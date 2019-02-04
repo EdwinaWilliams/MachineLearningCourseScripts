@@ -1,0 +1,13 @@
+train_test_split 
+splits the data into 4 variables 
+	X_train = training features
+	y_train = training lables 
+	X_test = test features
+	y_test = test lables (will be used to see what the accuracy is 
+							number of correct predctions / total dataset)
+							
+best practice 75 train 25 test
+	
+Use stratify = y (labels) --> so that the split reflect the lables of your data so that your labels is evenly distributed as they are in your data
+
+use knn.score(X_test, y_test) to test the predictions accuracy of your model) 
