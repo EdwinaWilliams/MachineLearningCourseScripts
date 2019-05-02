@@ -72,6 +72,24 @@ print(maskedWord)
 print("Guess the letters of the missing words, you get " + str(maxGuess) + " guesses")
 usrinput = input()
 
+#For each letter --> checking where the user input match the word
+
+listword = list(word)
+print(listword)
+for i in listword:
+    if listword[i] == usrinput:
+        results = True
+#        maskedWord = maskedWord.replace(maskedWord[i], usrinput);
+#    else:
+#        maxGuess -= 1
+#        
+
+
+print(results)
+
+
+
+
 #print(maskedIndexNo)
 #
 #for i in maskedIndexNo:
@@ -86,8 +104,8 @@ usrinput = input()
 #
 #print(newword)
 
-randomLetters =  random.choice(word)
-print(randomLetters)
+#randomLetters =  random.choice(word)
+#print(randomLetters)
         
 #for i in unmaskindex: 
 #     maskedWord = maskedWord.replace(maskedWord[5], usrinput)  
